@@ -1,0 +1,215 @@
+.button
+	text-decoration: none
+	cursor: pointer
+	display: inline-block
+	height: 54px
+	box-sizing: border-box
+	border: solid 2px $orange
+	text-transform: uppercase
+	letter-spacing: 1px
+	padding: 0 25px
+	background-color: transparent
+	color: white
+	transition: background-color 200ms, color 200ms
+	&:hover,
+	&:focus
+		background-color: $orange
+		color: black
+.page
+	height: 100%
+	position: relative
+.bg
+	width: 100%
+	height: 100%
+	background: url('../images/bg.jpg') center / cover
+	position: absolute
+	z-index: 0
+.overlay
+	position: relative
+	height: 100%
+	z-index: 1
+	background: fade-out(black, 0.2)
+.o-body
+	margin-bottom: 35px
+	position: relative
+.o-form
+	position: absolute
+	top: 0
+	right: 0
+	bottom: 85px
+	left: 0
+	overflow: auto
+	+valign(middle)
+	text-align: center
+	> .container
+		text-align: left
+		padding: 40px 0
+	h1
+		text-align: center
+		font-weight: normal
+		font-size: 48px
+		margin-bottom: 40px
+	.input
+		width: 100%
+		display: inline-block
+	.o-date-day
+		width: 30%
+		~ div
+			margin-left: -1px
+	.o-date-month
+		width: 30%
+	.o-date-year
+		width: 40%
+		width: calc(40% + 2px)
+.o-send
+	text-align: center
+.o-sex
+	+blocks(2)
+	position: relative
+	overflow: hidden
+	input
+		width: 0
+		height: 0
+		position: absolute
+		left: -50px
+		top: -50px
+		z-index: -1
+		&:focus
+			+ div
+				border-color: white
+		&:checked
+			+ div
+				border-color: white
+				color: white
+	label
+		width: 50%
+		height: 54px
+		box-sizing: border-box
+		cursor: pointer
+		&:hover
+			div
+				border-color: white
+		~ label
+			margin-left: -1px
+			&:last-child
+				width: calc(50% + 1px)
+	div
+		height: 100%
+		box-sizing: border-box
+		padding: 0 20px
+		text-align: center
+		line-height: 50px
+		border: 1px solid fade-out(white, 0.5)
+		color: fade-out(white, 0.5)
+		transition: border-color 200ms, color 200ms
+.o-date
+	+blocks(0)
+.o-column
+	width: 260px
+.o-row
+	&:not(:last-child)
+		margin-bottom: 20px
+.o-accept
+	font-size: 13px
+	text-align: center
+	margin-bottom: 35px
+	overflow: hidden
+	position: relative
+	input
+		&[type="checkbox"]
+			width: 0
+			height: 0
+			position: absolute
+			z-index: -1
+			left: -50px
+			top: -50px
+			+ .checkbox
+				display: inline-block
+				margin-right: 10px
+				+size(22 22)
+				box-sizing: border-box
+				border: 1px solid fade-out(white, 0.5)
+				border-radius: 50%
+				position: relative
+				transition: border-color 200ms
+				&:before
+					content: ''
+					+size(8 8)
+					border-radius: 50%
+					position: absolute
+					margin: auto
+					top: 0
+					right: 0
+					bottom: 0
+					left: 0
+					transition: background-color 200ms
+			&:checked
+				+ .checkbox
+					&:before
+						background: $orange
+			&:focus
+				+ .checkbox
+					border-color: white
+	label
+		&:hover
+			.checkbox
+				border-color: white
+	span
+		vertical-align: top
+		line-height: 22px
+footer
+	text-align: center
+	position: absolute
+	right: 0
+	bottom: 0
+	left: 0
+	height: 85px
+	line-height: 14px
+	color: fade-out(white, 0.5)
+	background: fade-out(black, 0.5)
+	.container
+		height: 100%
+		+valign($fontSize: 10px)
+.o-messages
+	background: black
+	+stretch
+	z-index: 1
+	visibility: hidden
+	opacity: 0
+	transition: visibility 200ms, opacity 200ms
+	&.visible
+		visibility: visible
+		opacity: 1
+.om-body
+	+valign
+	+stretch($bottom: 54)
+	text-align: center
+.om-body-text
+	font-size: 13px
+	p
+		margin-bottom: 4px
+.om-hide
+	letter-spacing: 1px
+	text-transform: uppercase
+	font-size: 14px
+	cursor: pointer
+	line-height: 52px
+	text-align: center
+	height: 54px
+	+stretch($top: auto)
+	box-sizing: border-box
+	border-top: 1px solid fade-out(#d8d8d8, 0.8)
+.second-step
+	display: none
+	text-align: center !important
+	h2
+		font-size: 36px
+		font-weight: normal
+		margin-bottom: 15px
+	p
+		margin-bottom: 30px
+.form-sent
+	.first-step
+		display: none
+	.second-step
+		display: inline-block

@@ -1,0 +1,157 @@
+html
+	height: 100%
+body
+	min-width: $minContainerWidth
+	height: 100%
+	margin: 0
+	font: $defFontWeight #{$defFontSize}/#{$defLineHeight} $bodyFont
+	font-smoothing: antialiased
+	osx-font-smoothing: grayscale
+	color: $bodyColor
+	background: $bodyBgColor
+main
+	display: block
+article
+	font-size: $defFontSize
+	word-wrap: break-word
+	position: relative
+	font-weight: 300
+	.left
+		float: left
+		margin-right: 40px
+	.right
+		float: right
+		margin-left: 40px
+	img
+		max-width: 100%
+		height: auto
+		+ em
+			font-size: smaller
+			margin-top: -10px
+			margin-bottom: 20px
+			display: block
+	ul
+		li
+			position: relative
+			padding-left: 17px
+			&:before
+				content: ''
+				position: absolute
+				+size(8 8)
+				background: #95db73
+				left: 0
+				top: 4px
+				border-radius: 2px
+		&.ticks
+			li
+				&:before
+					+sprite(135 18)
+					+size(13 10)
+					top: 5px
+	table
+		margin-bottom: 20px
+		tr
+			border-bottom: 1px solid #d9d9d9
+			&:first-child
+				border-top: 1px solid #d9d9d9
+		th
+			padding: 10px 15px
+		td
+			padding: 6px 15px
+	iframe
+		max-width: 100%
+	a
+		+hover-underline
+a
+	color: $linkColor
+	text-decoration: none
+	&:hover
+		color: $linkHoverColor
+		text-decoration: underline
+=input
+	background: transparent
+	position: relative
+	z-index: 1
+	width: 100%
+	padding: 10px 20px
+	border: 0
+	box-sizing: border-box
+	display: block
+	line-height: 1.2
+	border: 1px solid fade-out(white, 0.5)
+	transition: border-color 200ms
+	&:hover
+	&:focus
+		border-color: white
+		+ .placeholder
+	&.filled
+		// border-color: rgba(0, 0, 0, 0.4)
+		+ .placeholder
+			color: transparent
+	// &.invalid
+		// border-color: #d0021b !important
+		// color: #d0021b !important
+		// box-shadow: 0 0 6px rgba(232, 58, 58, 0.5)
+		// ~ .input-error
+			// opacity: 1
+			// visibility: visible
+.placeholder
+	position: absolute
+	left: 0
+	top: 0
+	z-index: 0
+	padding: 10px 21px
+	color: fade-out(white, 0.5)
+	font: inherit
+	transition: color 200ms
+	height: 54px
+	line-height: 35px
+	box-sizing: border-box
+.input-error
+	position: absolute
+	opacity: 0
+	visibility: hidden
+	transition: opacity 200ms, visibility 200ms
+	color: #d0021b
+	font-size: 11px
+	&:after
+		content: ' ' attr(data-validation-message)
+input[type=checkbox]
+	transition: box-shadow 150ms
+	&.invalid
+		box-shadow: 0 0 9px 1px red
+		border-radius: 5px
+select
+	border-radius: 2px
+	transition: border-color 150ms
+	option
+		padding: 3px 8px
+	&.invalid
+		border-color: fade-out(red, 0.2)
+.input
+	position: relative
+	display: inline-block
+	line-height: 54px
+	input
+		+input
+		height: 54px
+	textarea
+		+input
+.container
+	min-width: $minContainerWidth
+	max-width: $maxContainerWidth
+	box-sizing: border-box
+	margin-right: auto
+	margin-left: auto
+.container-relative
+	@extend .container
+	position: relative
+	height: 100%
+.container-fixed
+	width: $minContainerWidth
+	box-sizing: border-box
+	margin-right: auto
+	margin-left: auto
+.padded
+	padding-right: 20px
+	padding-left: 20px

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>A$AP NAST ATRIUM</title>
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+		<link rel="stylesheet" href="./css/style.css">
+	</head>
+	<body>
+		<div class="page">
+			<div class="bg"></div>
+			<div class="overlay">
+				<div class="o-form">
+					<div class="container first-step">
+						<h1>A$AP NAST ATRIUM</h1>
+						<form class="form" method="POST" action="https://formspree.io/komolkin@gmail.com">
+							<div class="o-body clearfix">
+								<div class="o-column fll">
+									<div class="o-row">
+										<div class="input">
+											<input type="text" name="name" required data-validation-message="Необходимо заполнить имя" tabindex="1">
+											<span class="placeholder">Имя</span>
+										</div>
+									</div>
+									<div class="o-row o-sex">
+										<label>
+											<input type="radio" name="sex" value="male" required data-validation-message="Необходимо верно заполнить пол" tabindex="3">
+											<div>Мужской</div>
+										</label>
+										<label>
+											<input type="radio" name="sex" value="female" required data-validation-message="Необходимо верно заполнить пол" tabindex="4">
+											<div>Женский</div>
+										</label>
+									</div>
+									<div class="o-row">
+										<div class="input">
+											<input type="email" name="email" required data-validation-message="Необходимо заполнить email" tabindex="8">
+											<span class="placeholder">Email</span>
+										</div>
+									</div>
+								</div>
+								<div class="o-column flr">
+									<div class="o-row">
+										<div class="input">
+											<input type="text" name="last_name" required data-validation-message="Необходимо заполнить фамилию" tabindex="2">
+											<span class="placeholder">Фамилия</span>
+										</div>
+									</div>
+									<div class="o-row o-date">
+										<div class="input o-date-day">
+											<input type="text" name="date_day" maxlength="2" tabindex="5">
+											<span class="placeholder">ДД</span>
+										</div>
+										<div class="input o-date-month">
+											<input type="text" name="date_month" maxlength="2" tabindex="6">
+											<span class="placeholder">ММ</span>
+										</div>
+										<div class="input o-date-year">
+											<input type="text" name="date_year" maxlength="4" tabindex="7">
+											<span class="placeholder">ГГ</span>
+										</div>
+									</div>
+									<div class="o-row">
+										<div class="input">
+											<input type="url" name="social_link" tabindex="9">
+											<span class="placeholder">Facebook или VK</span>
+										</div>
+									</div>
+								</div>
+								<div class="o-messages">
+									<div class="om-body">
+										<div class="om-body-text"></div>
+									</div>
+									<div class="om-hide">Закрыть</div>
+								</div>
+							</div>
+							<div class="o-accept">
+								<label>
+									<input value="true" type="checkbox" name="accept" required data-validation-message="Необходимо принять условия соглашения" tabindex="10">
+									<span class="checkbox"></span>
+									<span>Я принимаю <a href="">условия</a> обработки моих персональных данных</span>
+								</label>
+							</div>
+							<div class="o-send">
+								<button class="button">Зарегистрироваться</button>
+							</div>
+						</form>
+					</div>
+					<div class="container second-step">
+						<h2>Спасибо!</h2>
+						<p>Мы свяжемся с вами в ближайшее время</p>
+						<button class="button of-back">Вернуться</button>
+					</div>
+				</div>
+				<footer>
+					<div class="container">
+						<p>* Получить приглашение могут только совершеннолетние зарегистрированные пользователи сайта http:// аккаунт пользователя в соц.сети, указанный в личном кабинете на данном сайте должен быть открытым. Организатор вправе отказать в предоставлении приглашения без объяснения причин. Количество приглашений ограничено.</p>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/index.js"></script>
+	</body>
+</html>

@@ -1,0 +1,195 @@
+@if variable-exists(fonts)
+	@each $class, $value in $fonts
+		$fontName: nth($value, 1)
+		$fontFamily: nth($value, 2)
+		$fontStyle: nth($value, 3)
+		$fontWeight: nth($value, 4)
+		$fullPath: $fontPath + $fontName
+		@font-face
+			font-family: $fontFamily
+			src: url($fullPath + '.eot')
+			src: local('☺'), url($fullPath  + '.eot?#iefix') format('embedded-opentype'), url($fullPath  + '.woff') format('woff'), url($fullPath  + '.ttf') format('truetype')
+			font-style: $fontStyle
+			font-weight: $fontWeight
+		.font-#{$class}
+			font:
+				family: $fontFamily
+				style: $fontStyle
+				weight: $fontWeight
+=stretch($top: 0, $right: 0, $bottom: 0, $left: 0, $position: absolute)
+	position: $position
+	margin: auto
+	@each $i, $j in (top: $top, right: $right, bottom: $bottom, left: $left)
+		@if $j == auto or $j == 0 or unit($j) == '%'
+			#{$i}: $j
+		@else
+			#{$i}: $j + px
+=hover-underline
+	text-decoration: none
+	&:hover
+		text-decoration: underline
+=inline-block($align: top)
+	display: inline-block
+	vertical-align: $align
+=sprite($position: 0 0)
+	background: url(img('sprite.png')) -#{nth($position, 1)}px -#{nth($position, 2)}px
+=size($sizes)
+	$width: nth($sizes, 1)
+	$height: nth($sizes, 2)
+	@if $width == 0 or $width == auto or unit($width) == '%'
+		width: $width
+	@else
+		width: #{$width}px
+	@if $height == 0 or $height == auto or unit($height) == '%'
+		height: $height
+	@else
+		height: #{$height}px
+=triangle($direction, $color, $width, $height)
+	$width: $width / 2 + px
+	$height: $height + px
+	+size(0 0)
+	border-style: solid
+	@if $direction == up
+		border-color: $color transparent
+		border-width: 0 $width $height $width
+	@else if $direction == right
+		border-color: transparent $color
+		border-width: $width  0 $width $height
+	@else if $direction == down
+		border-color: $color transparent
+		border-width: $height $width 0 $width
+	@else if $direction == left
+		border-color: transparent $color
+		border-width: $width $height $width 0
+$blocksMap: (1: 100%, 2: 50%, 3: 33.33%, 4: 25%, 5: 20%, 6: 16.66%)
+=blocks($amount: null, $fontSize: $defFontSize, $align: top)
+	@if $amount != null
+		font-size: 0
+	> *
+		+inline-block($align)
+		@if $amount != null
+			font-size: $fontSize
+			width: map-get($blocksMap, $amount)
+=justify($align: top)
+	text-align: justify
+	line-height: 0
+	> *
+		+inline-block($align)
+		line-height: $defLineHeight
+		text-align: left
+	&:after
+		content: ''
+		display: inline-block
+		vertical-align: top
+		width: 100%
+=valign($align: middle, $fontSize: $defFontSize)
+	font-size: 0
+	> *
+		font-size: $fontSize
+		+inline-block($align)
+	&:before
+		content: ''
+		display: inline-block
+		vertical-align: $align
+		height: 100%
+@function img($name)
+	@return $imgPath + $name
+.justify
+	+justify
+.justify-middle
+	+justify(middle)
+.justify-bottom
+	+justify(bottom)
+.valign
+	+valign
+.valign-bottom
+	+valign(bottom)
+.blocks
+	+blocks(0)
+.fit-bg
+	overflow: hidden
+	position: relative
+	> *
+		position: absolute
+	img
+		opacity: 0
+		visibility: hidden
+		&.loaded
+			opacity: 1
+			visibility: visible
+.linked-node-visibility
+	visibility: hidden
+	&.active
+		visibility: visible
+.linked-node-display
+	display: none !important
+	&.active
+		display: block !important
+.linked-node-display-ib
+	display: none !important
+	&.active
+		display: inline-block !important
+.sv-tab
+	display: none !important
+	&.active
+		display: block !important
+input
+	~ .for-checked,
+	~ .for-checked-ib
+		display: none
+	~ .for-unchecked
+		display: inline
+	~ .for-unchecked-ib
+		display: inline-block
+	&:checked
+		~ .for-unchecked,
+		~ .for-unchecked-ib
+			display: none
+		~ .for-checked
+			display: inline
+		~ .for-checked-ib
+			display: inline-block
+.inactive
+	opacity: .4 !important
+	cursor: default !important
+.disabled
+	opacity: 0 !important
+	cursor: default !important
+.dn
+	display: none !important
+.db
+	display: block !important
+.vv
+	visibility: visible !important
+.vh
+	visibility: hidden !important
+.wsnw
+	white-space: nowrap
+.clr
+	clear: both
+	display: block
+.clearfix
+	&:after
+		content: ''
+		display: table
+		clear: both
+.fll
+	float: left
+.flr
+	float: right
+.tac
+	text-align: center !important
+.tal
+	text-align: left !important
+.tar
+	text-align: right !important
+.dt
+	display: table
+	+size(100% 100%)
+.dtc
+	display: table-cell
+	vertical-align: middle
+.posr
+	position: relative
+.posa
+	position: absolute
